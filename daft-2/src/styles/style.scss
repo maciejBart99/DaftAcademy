@@ -1,0 +1,322 @@
+@import "~bootstrap/scss/bootstrap";
+
+$carousel-background: #263a49;
+$dark-label-color: #151515;
+$shadow: #f8f8f8;
+$light-label-color: #454545;
+
+.header
+{
+  height: 550px;
+  background-image: url('https://via.placeholder.com/1920X550');
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel
+{
+  background-color: $carousel-background;
+  height: 400px;
+  position: relative;
+  padding-top: 10px;
+}
+
+.label {
+  margin: 5px;
+  color: $light-label-color;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.label-inline
+{
+  display: inline-block;
+}
+
+.label-hoverable:hover, .label-active
+{
+  cursor: pointer;
+  position: relative;
+  &::after
+  {
+    display: block;
+    height: 2px;
+    width: 100%;
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: $dark-label-color;
+  }
+}
+
+.label-dark
+{
+  color: $dark-label-color !important;
+}
+
+.label-title
+{
+  font-size: 24px;
+}
+
+.label-bold
+{
+  font-weight: bold;
+}
+
+.label-small
+{
+  font-size: 11px;
+}
+
+.label-wrap
+{
+  max-width: 50%;
+}
+
+.label-margin
+{
+  margin: 10px;
+}
+
+.label-price
+{
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.label-promo-new
+{
+  &::before
+  {
+    content: '';
+    display: inline-block;
+    margin: 0 4px;
+    width: 10px;
+    height: 10px;
+    background-image: url("./../assets/kz-bolt-line.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.inline-form
+{
+  &::after
+  {
+    content: '';
+    display: block;
+    margin-top: 2px;
+    background-color: $dark-label-color;
+    width: 100%;
+    height: 2px;
+  }
+}
+
+.inline-form-container
+{
+  display: flex;
+  justify-content: space-between;
+
+  .inline-form-email-input
+  {
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+    color: #151515;
+    background-color: transparent;
+    padding: 5px;
+    flex-basis: 80%;
+
+    &::placeholder
+    {
+      color: rgba(69, 69, 69, 0.5);
+    }
+  }
+  .inline-form-button
+  {
+    border: 0;
+    outline: 0;
+    font-size: 13px;
+    padding: 5px;
+    font-weight: bold;
+    color: $dark-label-color;
+    background-color: transparent;
+    flex-basis: 20%;
+    transition: 0.2s;
+
+    &:hover
+    {
+      opacity: 0.5;
+    }
+  }
+}
+
+.card-product
+{
+  width: 100%;
+  border: 0 !important;
+
+  &-image-standard
+  {
+    width: 100%;
+  }
+
+  &-body
+  {
+    margin: 5px;
+    padding: 5px;
+  }
+
+}
+
+.card-product-padding
+{
+  @extend .p-md-3;
+}
+
+.padding-5px
+{
+  padding: 5px !important;
+}
+
+.carousel-container
+{
+  @extend .col-12;
+  @extend .offset-md-1;
+  @extend .offset-lg-2;
+  @extend .col-lg-8;
+  @extend .col-md-10;
+
+  overflow: hidden;
+}
+
+.carousel-arrow
+{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: none;
+  @extend .d-md-block;
+
+  &:hover
+  {
+    opacity: 80%;
+  }
+}
+
+.carousel-slider-element
+{
+  width: 150px;
+  height: 3px;
+  border-radius: 1px;
+  background-color: white;
+  opacity: 0.2;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  display: block;
+  @extend .d-md-none;
+}
+
+.carousel-arrow-left
+{
+  left: 50px;
+}
+
+.carousel-arrow-right
+{
+  right: 50px;
+}
+
+.cover-image
+{
+  position: relative;
+}
+
+.cover-image-margin
+{
+  margin: 20px;
+}
+
+.image-cover
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  align-items: start;
+  flex-direction: column;
+}
+
+.image-cover-reverse
+{
+  flex-direction: column-reverse;
+}
+
+.cover-image-hoverable:hover .image-cover
+{
+  background-color: rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: 0.2s;
+
+  * {
+    color: white;
+  }
+}
+
+.carousel-slider
+{
+  display: flex;
+  align-items: center;
+}
+
+.icon 
+{
+  margin: 5px;
+  cursor: pointer;
+}
+.icon-hoverable
+{
+  transition: 0.2s;
+
+  &:hover
+  {
+    opacity: 0.5;
+  }
+}
+
+.borderless-select
+{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent url("./../assets/kz-angle-down.png") no-repeat;
+  background-position-x: 100%;
+  outline: none;
+  background-position-y: 50%;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+  margin-right: 1rem;
+  padding: 1px 15px 1px 5px;
+
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.divider {
+  height: 1px;
+  width:100%;
+  display: block;
+  margin: 15px 5px;
+  overflow: hidden;
+  background-color: $shadow;
+}

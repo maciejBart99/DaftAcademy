@@ -40,7 +40,7 @@
   </header>
   <section class="carousel">
     <div class="carousel-container">
-      <div class="carousel-slider">
+      <div class="carousel-slider transition-05" id="carousel-container">
         <div class="cover-image cover-image-margin cover-image-hoverable">
           <img alt="Product" src="https://via.placeholder.com/268x338">
           <div class="image-cover image-cover-reverse">
@@ -78,16 +78,16 @@
         </div>
       </div>
     </div>
-    <div class="carousel-arrow carousel-arrow-left">
+    <div class="carousel-arrow carousel-arrow-left" id="carousel-arrow-left">
       <img src="assets/left-arrow.svg">
     </div>
-    <div class="carousel-arrow carousel-arrow-right">
+    <div class="carousel-arrow carousel-arrow-right" id="carousel-arrow-right">
       <img src="assets/right-arrow.svg">
     </div>
-    <div class="carousel-slider-element"></div>
+    <div class="carousel-slider-element transition-05" id="carousel-bottom-slider"></div>
   </section>
   <section class="container py-5">
-    <div class="row">
+    <div class="row" id="products-container">
       <div class="col-12"><h2 class="text-center m-5">New Arrivals</h2></div>
       <div class="col-6 col-lg-3 padding-5px">
         <div class="card card-product card-product-padding">
@@ -162,8 +162,10 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="row">
       <div class="col-12 d-flex justify-content-center my-5">
-        <button class="btn btn-outline-dark rounded-0">All products</button>
+        <button class="btn btn-outline-dark rounded-0" id="all-products">All products</button>
       </div>
       <div class="col-12">
         <div class="row">
@@ -255,9 +257,12 @@
     </div>
     <div class="divider"></div>
     <div class="d-flex justify-content-between align-items-center flex-wrap mt-4 mb-3">
-      <p class="label label-small mt-2">2019 Zonex All rights reserved</p>
+      <p class="label label-small mt-2"><span id="date-field"></span> Zonex All rights reserved</p>
       <img class="mt-2" src="assets/payment.png" alt="payment">
   </div>
   </footer>
+  <div class="scroll-to-top">
+    <button id="scroll-to-top" class="scroll-to-top-button">↑</button>
+  </div>
 </body>
 </html>

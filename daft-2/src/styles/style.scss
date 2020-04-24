@@ -274,6 +274,8 @@ $light-label-color: #454545;
 {
   display: flex;
   align-items: center;
+  left: 0;
+  position: relative;
 }
 
 .icon 
@@ -320,3 +322,29 @@ $light-label-color: #454545;
   overflow: hidden;
   background-color: $shadow;
 }
+
+.scroll-to-top
+{
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 20px;
+  &-button {
+    border: 0;
+    background-color: white;
+    outline: none !important;
+    width: 48px;
+    color: #375973;
+    height: 48px;
+    font-size: 30px;
+    box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+  }
+}
+
+.transition-05
+{
+  transition: 0.5s;
+}
+

@@ -18,10 +18,9 @@ export default function app(scrollTopButtonId, dateContainerId,
     const step = 45;
 
     /* Recursively scroll to top with timeout */
-    function smoothGoTo(y) {
-        y -= step;
+    function smoothGoTo() {
         window.scrollBy(0, -step);
-        if (y >= 0) setTimeout(() => smoothGoTo(y), 0);
+        if (window.scrollY > 0) setTimeout(() => smoothGoTo(), 0);
     }
 
     /* update carousel and slider position */
@@ -52,7 +51,7 @@ export default function app(scrollTopButtonId, dateContainerId,
     {
         // Add scroll to top support
         document.getElementById(scrollTopButtonId).addEventListener(
-            'click', () => smoothGoTo(window.scrollY)
+            'click', () => smoothGoTo()
         );
         // Update date in the footer
         document.getElementById(dateContainerId).innerText = String((new Date()).getFullYear());
@@ -93,6 +92,7 @@ export default function app(scrollTopButtonId, dateContainerId,
         // Add touch swipe support
         carouselContainer.addEventListener(
             'touchstart', event => {
+                event.preventDefault();
                 touchStartCords = {
                     x: event.targetTouches[0].screenX,
                     y: event.targetTouches[0].screenY
@@ -104,6 +104,7 @@ export default function app(scrollTopButtonId, dateContainerId,
         );
         carouselContainer.addEventListener(
             'touchmove', event => {
+                event.preventDefault();
                 let xTranslation = -event.targetTouches[0].screenX + touchStartCords.x;
                 let xProportion = xTranslation * carouselItemsCount / carouselWidth / 10;
                 carouselCurrentItem = Math.max(0, Math.min(carouselCurrentItem + xProportion,
@@ -113,6 +114,7 @@ export default function app(scrollTopButtonId, dateContainerId,
         );
         carouselContainer.addEventListener(
             'touchend', event => {
+                event.preventDefault();
                 carouselCurrentItem = Math.round(carouselCurrentItem);
                 carouselContainer.classList.add('transition-05');
                 carouselSlider.classList.add('transition-05');
@@ -124,6 +126,6 @@ export default function app(scrollTopButtonId, dateContainerId,
     if (arguments.length !== 4) throw Error("Invalid arguments!");
 
     return {
-        init, reloadCarousel
+        init
     }
 }

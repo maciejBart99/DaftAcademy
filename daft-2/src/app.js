@@ -44,7 +44,6 @@ export default function app(scrollTopButtonId, dateContainerId,
     /* Refresh carousel  */
     function reloadCarousel()
     {
-        console.log('reload');
         carouselWidth = 0;
         Array.from(carouselContainer.children).forEach(
             (el) => {
@@ -120,7 +119,6 @@ export default function app(scrollTopButtonId, dateContainerId,
                 let xProportion = xTranslation / carouselItemWidth;
                 carouselCurrentItem = Math.max(0, Math.min(carouselTouchStartItem + xProportion,
                     carouselItemsCount - Math.floor(carouselWindowWidth / carouselItemWidth)));
-                console.log(carouselCurrentItem);
                 carouseMove();
             }
         );

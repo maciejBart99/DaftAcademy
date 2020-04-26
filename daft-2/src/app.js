@@ -2,7 +2,7 @@
 /* Module handling scroll to top, adding items to the container and dynamic carousel */
 export default function app(scrollTopButtonId, dateContainerId,
                             {prButtonId, prContainerId, prTemplate},
-                            {carContainerId, arrowLeftId, arrowRightId, carSliderId}) {
+                            {carContainerId, arrowLeftId, arrowRightId, carSliderId, transClass}) {
     let productContainer;
     let carouselContainer;
     let carouselWidth;
@@ -12,10 +12,20 @@ export default function app(scrollTopButtonId, dateContainerId,
     let carouselItemsCount;
     let carouselSlider;
     let sliderWidth;
-    let touchStartCords = null;
+    let touchStartCords;
+    let carouselTouchStartItem;
     let touchStartElement;
 
     const step = 45;
+
+    function touchEndCancel(event)
+    {
+        event.preventDefault();
+        carouselCurrentItem = Math.round(carouselCurrentItem);
+        carouselContainer.classList.add(transClass);
+        carouselSlider.classList.add(transClass);
+        carouseMove();
+    }
 
     /* Recursively scroll to top with timeout */
     function smoothGoTo() {
@@ -27,7 +37,7 @@ export default function app(scrollTopButtonId, dateContainerId,
     function carouseMove()
     {
         carouselContainer.style.left = String(-carouselCurrentItem * carouselItemWidth) + 'px';
-        carouselSlider.style.left = String(20 + ((carouselWindowWidth - 200)
+        carouselSlider.style.left = String(20 + ((carouselWindowWidth - carouselSlider.offsetWidth)
             * carouselCurrentItem / carouselItemsCount)) + 'px';
     }
 
@@ -90,40 +100,37 @@ export default function app(scrollTopButtonId, dateContainerId,
         );
         window.addEventListener('resize', reloadCarousel);
         // Add touch swipe support
-        carouselContainer.addEventListener(
+        carouselContainer.parentElement.addEventListener(
             'touchstart', event => {
                 event.preventDefault();
                 touchStartCords = {
                     x: event.targetTouches[0].screenX,
                     y: event.targetTouches[0].screenY
                 };
-                carouselContainer.classList.remove('transition-05');
-                carouselSlider.classList.remove('transition-05');
+                carouselTouchStartItem = carouselCurrentItem;
+                carouselContainer.classList.remove(transClass);
+                carouselSlider.classList.remove(transClass);
                 touchStartElement = carouselCurrentItem;
             }
         );
-        carouselContainer.addEventListener(
+        carouselContainer.parentElement.addEventListener(
             'touchmove', event => {
                 event.preventDefault();
                 let xTranslation = -event.targetTouches[0].screenX + touchStartCords.x;
-                let xProportion = xTranslation * carouselItemsCount / carouselWidth / 10;
-                carouselCurrentItem = Math.max(0, Math.min(carouselCurrentItem + xProportion,
+                let xProportion = 2 * xTranslation / carouselItemWidth;
+                carouselCurrentItem = Math.max(0, Math.min(carouselTouchStartItem + xProportion,
                     carouselItemsCount - Math.floor(carouselWindowWidth / carouselItemWidth)));
+                console.log(carouselCurrentItem);
                 carouseMove();
             }
         );
-        carouselContainer.addEventListener(
-            'touchend', event => {
-                event.preventDefault();
-                carouselCurrentItem = Math.round(carouselCurrentItem);
-                carouselContainer.classList.add('transition-05');
-                carouselSlider.classList.add('transition-05');
-                carouseMove();
-            }
+        carouselContainer.parentElement.addEventListener(
+            'touchend', touchEndCancel
+        );
+        carouselContainer.parentElement.addEventListener(
+            'touchcancel', touchEndCancel
         );
     }
-
-    if (arguments.length !== 4) throw Error("Invalid arguments!");
 
     return {
         init

@@ -23,7 +23,8 @@ const root = app(
         carContainerId: 'carousel-container',
         arrowLeftId: 'carousel-arrow-left',
         arrowRightId: 'carousel-arrow-right',
-        carSliderId: 'carousel-bottom-slider'
+        carSliderId: 'carousel-bottom-slider',
+        transClass: 'transition-05'
     }
 );
 

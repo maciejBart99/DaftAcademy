@@ -36,9 +36,9 @@ export default function app(scrollTopButtonId, dateContainerId,
     /* update carousel and slider position */
     function carouseMove()
     {
-        carouselContainer.style.left = String(-carouselCurrentItem * carouselItemWidth) + 'px';
-        carouselSlider.style.left = String(20 + ((carouselWindowWidth - carouselSlider.offsetWidth)
-            * carouselCurrentItem / carouselItemsCount)) + 'px';
+        carouselContainer.style.transform = `translateX(${-carouselCurrentItem * carouselItemWidth}px)`;
+        carouselSlider.style.transform = `translateX(${20 + ((carouselWindowWidth - carouselSlider.offsetWidth)
+            * carouselCurrentItem / carouselItemsCount)}px)`;
     }
 
     /* Refresh carousel  */
@@ -117,7 +117,7 @@ export default function app(scrollTopButtonId, dateContainerId,
             'touchmove', event => {
                 event.preventDefault();
                 let xTranslation = -event.targetTouches[0].screenX + touchStartCords.x;
-                let xProportion = 2 * xTranslation / carouselItemWidth;
+                let xProportion = xTranslation / carouselItemWidth;
                 carouselCurrentItem = Math.max(0, Math.min(carouselTouchStartItem + xProportion,
                     carouselItemsCount - Math.floor(carouselWindowWidth / carouselItemWidth)));
                 console.log(carouselCurrentItem);

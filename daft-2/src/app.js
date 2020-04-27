@@ -15,8 +15,15 @@ export default function app(scrollTopButtonId, dateContainerId,
     let touchStartCords;
     let carouselTouchStartItem;
     let touchStartElement;
+    let scrollBtn;
 
     const step = 45;
+
+    function toggleScrollButton()
+    {
+        if (window.scrollY > window.innerHeight / 2) scrollBtn.style.display = 'initial';
+        else scrollBtn.style.display = 'none';
+    }
 
     function touchEndCancel(event)
     {
@@ -59,9 +66,12 @@ export default function app(scrollTopButtonId, dateContainerId,
     function init()
     {
         // Add scroll to top support
-        document.getElementById(scrollTopButtonId).addEventListener(
+        scrollBtn = document.getElementById(scrollTopButtonId);
+        scrollBtn.addEventListener(
             'click', () => smoothGoTo()
         );
+        window.addEventListener('scroll', toggleScrollButton);
+        toggleScrollButton();
         // Update date in the footer
         document.getElementById(dateContainerId).innerText = String((new Date()).getFullYear());
         // Add AllProducts support

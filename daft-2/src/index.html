@@ -41,40 +41,13 @@
   <section class="carousel">
     <div class="carousel-container">
       <div class="carousel-slider transition-05" id="carousel-container">
-        <div class="cover-image cover-image-margin cover-image-hoverable">
-          <img alt="Product" src="https://via.placeholder.com/268x338">
-          <div class="image-cover image-cover-reverse">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
+        <div class="d-flex w-100 h-100 justify-content-center align-items-center" id="carousel-spinner">
+          <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
           </div>
         </div>
-        <div class="cover-image cover-image-margin cover-image-hoverable">
-          <img alt="Product" src="https://via.placeholder.com/268x338">
-          <div class="image-cover image-cover-reverse">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-        <div class="cover-image cover-image-margin cover-image-hoverable">
-          <img alt="Product" src="https://via.placeholder.com/268x338">
-          <div class="image-cover image-cover-reverse">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-        <div class="cover-image cover-image-margin cover-image-hoverable">
-          <img alt="Product" src="https://via.placeholder.com/268x338">
-          <div class="image-cover image-cover-reverse">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-        <div class="cover-image cover-image-margin cover-image-hoverable">
-          <img alt="Product" src="https://via.placeholder.com/268x338">
-          <div class="image-cover image-cover-reverse">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
+        <div class="w-100 h-100 justify-content-center align-items-center d-none" id="carousel-error">
+          <h6 class="text-light">Error while loading...</h6>
         </div>
       </div>
     </div>
@@ -89,92 +62,27 @@
   <section class="container py-5">
     <div class="row" id="products-container">
       <div class="col-12"><h2 class="text-center m-5">New Arrivals</h2></div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-bold label-small label-promo-new">New</p>
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
+    </div>
+    <div class="w-100 d-flex justify-content-center">
+      <div class="spinner-grow" role="status" id="products-spinner">
+        <span class="sr-only">Loading...</span>
       </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-             <p class="label label-small">Azure Tote</p>
-              <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-lg-3 padding-5px">
-        <div class="card card-product card-product-padding">
-          <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/309x390">
-          <div class="card-product-body">
-            <p class="label label-small">Azure Tote</p>
-            <h6 class="label label-price">$299.99</h6>
-          </div>
-        </div>
+      <div class="alert alert-danger d-none" role="alert" id="products-error">
+        Cannot load dynamic content! Please try again.
       </div>
     </div>
     <div class="row">
       <div class="col-12 d-flex justify-content-center my-5">
         <button class="btn btn-outline-dark rounded-0" id="all-products">All products</button>
       </div>
-      <div class="col-12">
+      <div class="col-12 d-none" id="special-products-container">
         <div class="row">
-          <div class="col-12 col-lg-5 padding-5px">
-            <div class="card card-product">
-              <div class="cover-image">
-                <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/547x630">
+          <div class="col-12 col-lg-5 padding-5px overflow-hidden card-image-special-big">
+            <div class="card card-product" data-value="item">
+              <div class="cover-image w-100">
+                <img class="card-product-image-standard" alt="Product" data-value="image">
                 <div class="image-cover">
-                  <h5 class="label-title label label-bold label-wrap">Sleave denim mini dress</h5>
+                  <h5 class="label-title label label-bold label-wrap" data-value="name"></h5>
                   <a class="label label-hoverable">Show now</a>
                 </div>
               </div>
@@ -182,34 +90,34 @@
           </div>
           <div class="col-12 col-lg-7">
             <div class="row">
-              <div class="col-12 col-md-6 padding-5px">
-                <div class="card card-product">
-                  <div class="cover-image">
-                    <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/380x310">
+              <div class="col-12 col-md-6 padding-5px overflow-hidden card-image-special-medium">
+                <div class="card card-product" data-value="item">
+                  <div class="cover-image w-100">
+                    <img class="card-product-image-standard card-image-center" alt="Product" data-value="image">
                     <div class="image-cover">
-                      <h5 class="label-title label label-bold">Back to school</h5>
+                      <h5 class="label-title label label-bold" data-value="name"></h5>
                       <a class="label label-hoverable">Show now</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 col-md-6 padding-5px">
-                <div class="card card-product">
-                  <div class="cover-image">
-                    <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/380x310">
+              <div class="col-12 col-md-6 padding-5px overflow-hidden card-image-special-medium">
+                <div class="card card-product" data-value="item">
+                  <div class="cover-image w-100">
+                    <img class="card-product-image-standard card-image-center" alt="Product" data-value="image">
                     <div class="image-cover">
-                      <h5 class="label-title label label-bold">Back to school</h5>
+                      <h5 class="label-title label label-bold" data-value="name"></h5>
                       <a class="label label-hoverable">Show now</a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-12 padding-5px">
-                <div class="card card-product">
-                  <div class="cover-image">
-                    <img class="card-product-image-standard" alt="Product" src="https://via.placeholder.com/769x310">
+              <div class="col-12 padding-5px overflow-hidden card-image-special-vertical">
+                <div class="card card-product" data-value="item">
+                  <div class="cover-image w-100">
+                    <img class="card-product-image-standard card-image-center-strong" alt="Product" data-value="image">
                     <div class="image-cover">
-                      <h5 class="label-title label label-bold">Back to school</h5>
+                      <h5 class="label-title label label-bold" data-value="name"></h5>
                       <a class="label label-hoverable">Show now</a>
                     </div>
                   </div>
